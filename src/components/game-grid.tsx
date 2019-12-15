@@ -15,7 +15,7 @@ interface Field {
   surroundingBombs?: number;
 }
 
-function reducer(state: Array<Field>, action: Action) {
+function reducer(state: Array<Array<Field>>, action: Action) {
   switch (action && action.type) {
     case 'INiTIALIZE_GAME': {
       const { difficulty } = action.payload;
@@ -29,6 +29,8 @@ function reducer(state: Array<Field>, action: Action) {
           };
         }
       }
+
+      return grid;
     }
     default:
       return state;
@@ -42,7 +44,7 @@ const GameGrid: React.FC<GridProps> = ({ difficulty }) => {
     dispatch({ type: 'INITIALIZE_GAME', payload: { difficulty } });
   }, [difficulty]);
 
-  return <div data-testid={`game${difficulty}`}></div>;
+  return <div></div>;
 };
 
 export default GameGrid;
