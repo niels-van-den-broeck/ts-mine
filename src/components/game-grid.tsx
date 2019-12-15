@@ -53,12 +53,16 @@ const GameGrid: React.FC<GridProps> = ({ difficulty }) => {
   }, [difficulty]);
 
   return (
-    <div id="game-content">
-      {grid.map(row =>
-        row.map(field => (
-          <div data-testId="field"> {JSON.stringify(field)}</div>
-        ))
-      )}
+    <div className="game-container">
+      {grid.map(row => (
+        <div className="row">
+          {row.map(field => (
+            <div data-testId="field" className="field">
+              <span>{field.isBomb && 1}</span>
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 };

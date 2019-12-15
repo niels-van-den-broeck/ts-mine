@@ -24,16 +24,12 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  height: 150px;
+  height: 160px;
 }
 
 .Difficulty-buttons {
   display: flex;
   flex-direction: row;
-}
-
-#game-content {
-  background-image: url(assets/images/dirt.png);
 }
 
 button {
@@ -45,6 +41,30 @@ button {
   text-shadow: -1px 1px 0 #000;
 }
 
-.App-link {
-  color: #61dafb;
+#game-content {
+  background-image: url(assets/images/dirt.png);
+  height: calc(100vh - 160px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-container {
+  display: flex;
+  background-color: red;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.field {
+  height: 18px;
+  width: 18px;
+  border: 1px solid black;
+  background-color: green;
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
 }

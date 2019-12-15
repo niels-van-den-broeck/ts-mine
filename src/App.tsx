@@ -37,7 +37,9 @@ const App: React.FC = () => {
           </button>
         </div>
       </header>
-      {currentDifficulty > 0 && <GameGrid difficulty={currentDifficulty} />}
+      <main id="game-content">
+        {currentDifficulty > 0 && <GameGrid difficulty={currentDifficulty} />}
+      </main>
     </div>
   );
 };
