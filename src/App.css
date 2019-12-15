@@ -64,7 +64,16 @@ button {
 .field {
   height: 18px;
   width: 18px;
-  border: 1px solid black;
-  background-color: green;
-  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border: 1px solid #492203;
+  background-color: #c6651b;
+  box-shadow: inset 0px 0px 10px #492203;
+}
+
+.field.active {
+  background-color: red;
+}
+
+.field:hover {
+  cursor: pointer;
+  background-color: #492203;
 }
