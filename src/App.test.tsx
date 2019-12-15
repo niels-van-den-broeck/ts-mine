@@ -10,7 +10,7 @@ describe('minesweeper app', () => {
   });
 
   test('it renders the difficulty buttons', () => {
-    const { getByText, getByTestId } = render(<App />);
+    const { getByText, getAllByTestId } = render(<App />);
 
     const easy = getByText('A walk in the park');
     const medium = getByText('I like a challenge');
@@ -18,8 +18,14 @@ describe('minesweeper app', () => {
 
     fireEvent.click(easy);
 
+    expect(getAllByTestId('field')).toHaveLength(25 * 25);
+
     fireEvent.click(medium);
 
+    expect(getAllByTestId('field')).toHaveLength(25 * 25);
+
     fireEvent.click(hard);
+
+    expect(getAllByTestId('field')).toHaveLength(25 * 25);
   });
 });

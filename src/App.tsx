@@ -10,7 +10,7 @@ const difficulties = {
 };
 
 const App: React.FC = () => {
-  const [currentDifficulty, setCurrentDifficulty] = useState<Number>(0);
+  const [currentDifficulty, setCurrentDifficulty] = useState<number>(0);
 
   return (
     <div className="App">
@@ -37,6 +37,7 @@ const App: React.FC = () => {
           </button>
         </div>
       </header>
+      {currentDifficulty > 0 && <GameGrid difficulty={currentDifficulty} />}
     </div>
   );
 };

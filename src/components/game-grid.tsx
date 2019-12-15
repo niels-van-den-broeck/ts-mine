@@ -17,19 +17,18 @@ interface Field {
 
 function reducer(state: Array<Array<Field>>, action: Action) {
   switch (action && action.type) {
-    case 'INiTIALIZE_GAME': {
+    case 'INITIALIZE_GAME': {
       const { difficulty } = action.payload;
       const grid: Array<Array<Field>> = [];
-      for (let y = 0; y < 50; y++) {
+      for (let y = 0; y < 25; y++) {
         grid[y] = [];
-        for (let x = 0; x < 50; x++) {
+        for (let x = 0; x < 25; x++) {
           grid[y][x] = {
-            isBomb: Math.random() > difficulty,
+            isBomb: Math.random() < difficulty,
             isActive: false,
           };
         }
       }
-
       return grid;
     }
     default:
@@ -44,7 +43,13 @@ const GameGrid: React.FC<GridProps> = ({ difficulty }) => {
     dispatch({ type: 'INITIALIZE_GAME', payload: { difficulty } });
   }, [difficulty]);
 
-  return <div></div>;
+  return (
+    <div>
+      {grid.map(row =>
+        row.map(field => <div data-testId="field">{JSON.stringify(field)}</div>)
+      )}
+    </div>
+  );
 };
 
 export default GameGrid;
